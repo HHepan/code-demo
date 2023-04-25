@@ -1,28 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {IndexComponent} from './index.component';
 import {RouterModule, Routes} from '@angular/router';
 import {DialogEntryComponent} from '../../common/dialog-entry/dialog-entry.component';
-import {Component1Component} from './component1/component1.component';
-import {Component2Component} from './component2/component2.component';
+import {TestIndexComponent} from './test-index/test-index.component';
+import {TestDialogComponent} from './test-dialog/test-dialog.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent,
+    component: TestIndexComponent,
     children: [
       {
-        path: 'component1Path',
+        path: 'testDialog',
         component: DialogEntryComponent,
         data: {
-          component: Component1Component
-        }
-      },
-      {
-        path: 'component2Path',
-        component: DialogEntryComponent,
-        data: {
-          component: Component2Component
+          component: TestDialogComponent
         }
       }
     ]
@@ -36,4 +28,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class IndexRoutingModule { }
+export class TestRoutingModule { }
