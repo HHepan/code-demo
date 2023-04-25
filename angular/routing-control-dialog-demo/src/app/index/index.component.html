@@ -1,14 +1,17 @@
 <div class="container mt-2">
   <div>
-    <a type="button" class="btn btn-secondary" routerLink="component1Path">component1</a>
+    <a class="btn btn-secondary" routerLink="component1Path">component1</a>
   </div>
   <div class="mt-2">
     <table class="table table-striped">
       <thead>
       <tr class="table-primary">
-        <th *ngFor="let i of example">
-          字段{{i}}
-        </th>
+        <th>字段1</th>
+        <th>字段2</th>
+        <th>字段3</th>
+        <th>字段4</th>
+        <th>字段5</th>
+        <th>字段6</th>
       </tr>
       </thead>
       <tbody>
@@ -19,11 +22,11 @@
         <td>4</td>
         <td>5</td>
         <td>
-          <a type="button" class="btn btn-primary" routerLink="component2Path">component2</a>
+          <a class="btn btn-primary" routerLink="component2Path">component2</a>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-  <router-outlet></router-outlet>
 </div>
+<router-outlet></router-outlet>
