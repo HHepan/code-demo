@@ -6,12 +6,9 @@
     <table class="table table-striped">
       <thead>
       <tr class="table-primary">
-        <th>字段1</th>
-        <th>字段2</th>
-        <th>字段3</th>
-        <th>字段4</th>
-        <th>字段5</th>
-        <th>字段6</th>
+        <th *ngFor="let i of example">
+          字段{{ i }}
+        </th>
       </tr>
       </thead>
       <tbody>
