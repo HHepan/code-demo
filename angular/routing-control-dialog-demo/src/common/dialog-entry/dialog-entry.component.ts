@@ -25,15 +25,8 @@ export class DialogEntryComponent {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(this.route.snapshot.data.component, {
-      width: '250px',
-      height: '250px',
-      position: {
-        top: '50px',
-        left: '150px'
-      }
+      width: '300px',
     });
-    // @ts-ignore
-    dialogRef.backdropElement.style.zIndex = '1000';
     const relativeBackUrl = this.getRelativeBackUrl();
     dialogRef.afterClosed().subscribe(result => {
       this.router.navigate([relativeBackUrl], { relativeTo: this.route });

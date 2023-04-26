@@ -5,10 +5,6 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./index/index.module').then(m => m.IndexModule)
-  },
-  {
-    path: 'test',
-    loadChildren: () => import('./test/test.module').then(m => m.TestModule)
   }
 ];
 
