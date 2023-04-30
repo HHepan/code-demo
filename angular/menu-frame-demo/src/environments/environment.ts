@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  color: 'darkcyan',
+  title: 'XXX系统',
+  style: 'record',
+  // frontWebSiteUrl: 'http://192.168.0.243:8006',
+  // defaultPassword: 'hebut',
+  size: 5
 };
 
 /*
