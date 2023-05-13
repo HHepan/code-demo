@@ -105,6 +105,7 @@ export class PageComponent implements OnInit {
 
   onChange(page: number): void {
     this.page = page;
+    console.log('onchangePage', page);
     this.changePage.emit(page);
   }
 
