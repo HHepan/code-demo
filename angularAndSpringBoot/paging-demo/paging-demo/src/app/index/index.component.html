@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="col-md-9 mt-2">
+    <div class="row">
+      <form class="form-inline" (submit)="onSubmit(queryForm)" [formGroup]="queryForm">
+        <input type="text" class="col-3 form-control mr-3" placeholder="学生姓名" formControlName="name">
+        <input type="text" class="col-3 form-control mr-3" placeholder="学号" formControlName="sno">
+        <button type="submit" class="btn btn-info"><i class="fas fa-search"></i>查询</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <div class="row mb-2">
+    <div class="col-6 text-left">
+      <app-size [size]="pageData.size" (changeSize)="onSizeChange($event)"></app-size>
+    </div>
+  </div>
+  <table class="table table-striped mt-3">
+    <thead class="table-primary">
+    <tr class="info">
+      <th>序号</th>
+      <th>姓名</th>
+      <th>学号</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of pageData.content, index as index">
+      <td>{{ index + 1 }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.sno }}</td>
+      <td>
+        <a class="btn btn-sm btn-primary mr-2">操作1</a>
+        <a class="btn btn-sm btn-danger">操作2</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <app-page [page]="pageData.number"
+            [size]="pageData.size"
+            [totalElements]="pageData.totalElements"
+            (changePage)="onPageChange($event)"></app-page>
+</div>

@@ -9,7 +9,7 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class StudentService {
-  url = 'student';
+  url = 'api/student';
   constructor(private httpClient: HttpClient) { }
 
   page(param: { page: number; size: number; name?: string; sno?: string; }): Observable<Page<Student>>  {

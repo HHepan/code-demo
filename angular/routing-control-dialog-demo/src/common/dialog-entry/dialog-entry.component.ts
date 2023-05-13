@@ -26,6 +26,9 @@ export class DialogEntryComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(this.route.snapshot.data.component, {
       width: '300px',
+      data: {
+        id: 1
+      }
     });
     const relativeBackUrl = this.getRelativeBackUrl();
     dialogRef.afterClosed().subscribe(result => {
