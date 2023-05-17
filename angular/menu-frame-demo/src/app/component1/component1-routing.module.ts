@@ -5,7 +5,10 @@ import {Component1Component} from './component1.component';
 const routes: Routes = [
   {
     path: '',
-    component: Component1Component
+    component: Component1Component,
+    data: {
+      title: '列表'
+    }
   },
 ];
 

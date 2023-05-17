@@ -4,7 +4,7 @@ import {LayoutComponent} from './layout.component';
 import {HeaderModule} from '../header/header.module';
 import {MenuModule} from '../menu/menu.module';
 import {NavModule} from '../nav/nav.module';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
 
 
