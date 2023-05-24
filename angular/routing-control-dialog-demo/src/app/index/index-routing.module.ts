@@ -16,7 +16,7 @@ const routes: Routes = [
         component: DialogEntryComponent,
         data: {
           component: Component1Component
-        },
+        }
       },
       {
         path: 'component2Path/:id',
