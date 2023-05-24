@@ -16,10 +16,11 @@ const routes: Routes = [
         component: DialogEntryComponent,
         data: {
           component: Component1Component
-        }
+        },
+        resolve: {}
       },
       {
-        path: 'component2Path',
+        path: 'component2Path/:id',
         component: DialogEntryComponent,
         data: {
           component: Component2Component

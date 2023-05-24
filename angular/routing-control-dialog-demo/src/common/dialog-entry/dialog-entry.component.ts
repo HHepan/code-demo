@@ -26,10 +26,9 @@ export class DialogEntryComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(this.route.snapshot.data.component, {
       width: '300px',
-      data: {
-        id: 1
-      }
     });
+    // @ts-ignore 向被打开的组件传递路由信息，以供其订阅路由参数
+    dialogRef.componentInstance.route = this.route;
     const relativeBackUrl = this.getRelativeBackUrl();
     dialogRef.afterClosed().subscribe(result => {
       this.router.navigate([relativeBackUrl], { relativeTo: this.route });
