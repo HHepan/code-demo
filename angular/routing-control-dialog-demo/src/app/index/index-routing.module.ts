@@ -19,7 +19,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'component2Path',
+        path: 'component2Path/:id',
         component: DialogEntryComponent,
         data: {
           component: Component2Component

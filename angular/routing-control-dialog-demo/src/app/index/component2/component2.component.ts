@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-component2',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./component2.component.css']
 })
 export class Component2Component implements OnInit {
-
+  @Input() route?: ActivatedRoute;
   constructor() { }
 
   ngOnInit(): void {
+    this.route?.params.subscribe(params => {
+      console.log('@Input() route.params.subscribe', params);
+    });
   }
 
 }
