@@ -17,7 +17,6 @@ const routes: Routes = [
         data: {
           component: Component1Component
         },
-        resolve: {}
       },
       {
         path: 'component2Path/:id',
