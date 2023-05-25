@@ -7,10 +7,12 @@ import {ActivatedRoute, Router, UrlSegment} from '@angular/router';
 })
 export class DialogEntryComponent {
   url: UrlSegment[];
+  componentInDialog;
   constructor(public dialog: MatDialog,
               private router: Router,
               private route: ActivatedRoute) {
     this.url = this.route.snapshot.url;
+    this.componentInDialog = this.route.snapshot.data.component;
     this.openDialog();
     // 检测全局路由变动
     this.router.events.subscribe(event => {
@@ -24,11 +26,18 @@ export class DialogEntryComponent {
     });
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(this.route.snapshot.data.component, {
-      width: '300px',
+    const dialogRef = this.dialog.open(this.componentInDialog, {
+      width: '500px',
     });
-    // @ts-ignore 向被打开的组件传递路由信息，以供其订阅路由参数
-    dialogRef.componentInstance.route = this.route;
+
+    // 手动注入ActivatedRoute
+    const component = dialogRef.componentInstance as any;
+    for (const key in component) {
+      if (component[key] && component[key] instanceof ActivatedRoute) {
+        component[key] = this.route;
+      }
+    }
+
     const relativeBackUrl = this.getRelativeBackUrl();
     dialogRef.afterClosed().subscribe(result => {
       this.router.navigate([relativeBackUrl], { relativeTo: this.route });
@@ -65,8 +74,3 @@ export class DialogEntryComponent {
     this.dialog.closeAll();
   }
 }
-
-// .cdk-overlay-container {
-//   position: fixed;
-//   z-index: 1000;
-// }
