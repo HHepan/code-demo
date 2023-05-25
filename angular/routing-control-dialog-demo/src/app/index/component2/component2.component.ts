@@ -7,12 +7,11 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./component2.component.css']
 })
 export class Component2Component implements OnInit {
-  @Input() route?: ActivatedRoute;
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route?.params.subscribe(params => {
-      console.log('@Input() route.params.subscribe', params);
+    this.route.params.subscribe(params => {
+      console.log('component2 route.params.subscribe', params);
     });
   }
 
